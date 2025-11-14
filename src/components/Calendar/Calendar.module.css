@@ -1,0 +1,113 @@
+.calendarContainer {
+  display: inline-block;
+  background-color: #0f0f0f;
+  padding: 1.5rem;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+  gap: 0.5rem;
+}
+
+.navButton {
+  background: transparent;
+  border: none;
+  color: #b0b0b0;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  line-height: 1;
+  font-family: 'Courier New', Courier, monospace;
+  transition: color 0.15s ease, background-color 0.15s ease;
+  border-radius: 2px;
+  user-select: none;
+  min-width: 2rem;
+}
+
+.navButton:hover {
+  color: #e0e0e0;
+  background-color: rgba(80, 80, 80, 0.3);
+}
+
+.navButton:focus {
+  outline: 2px solid rgba(176, 176, 176, 0.5);
+  outline-offset: 2px;
+}
+
+.navButton:active {
+  background-color: rgba(80, 80, 80, 0.5);
+}
+
+.caption {
+  flex: 1;
+  text-align: center;
+  font-weight: 400;
+  background: transparent;
+  color: #c0c0c0;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  padding: 0;
+}
+
+.calendar {
+  border-collapse: collapse;
+  margin: 0;
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+  background: transparent;
+  color: #b0b0b0;
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.weekday {
+  padding: 0.6rem 0.5rem;
+  font-size: 12px;
+  background: transparent;
+  color: #b0b0b0;
+  font-weight: 400;
+  width: 2.6rem;
+  letter-spacing: 0.3px;
+}
+
+.day {
+  padding: 0.65rem 0.5rem;
+  background: transparent;
+  color: #b0b0b0;
+  font-size: 13px;
+  border: none;
+  width: 2.6rem;
+  height: 2.6rem;
+  box-sizing: border-box;
+  transition: background-color 0.15s ease;
+  cursor: pointer;
+  user-select: none;
+}
+
+.day:hover:not(.selected) {
+  background-color: rgba(80, 80, 80, 0.4);
+  border-radius: 2px;
+}
+
+.day:focus {
+  outline: 2px solid rgba(176, 176, 176, 0.5);
+  outline-offset: -2px;
+  border-radius: 2px;
+}
+
+.faded {
+  color: #666666;
+}
+
+.selected {
+  background: #4a4a4a;
+  color: #e0e0e0;
+  font-weight: 500;
+  border: none;
+  border-radius: 2px;
+}
+
