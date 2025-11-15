@@ -2,6 +2,16 @@ import React from "react";
 import { format } from "date-fns";
 import type { CalendarNavigationProps } from "../../types";
 
+/**
+ * A React component for calendar navigation.
+ *
+ * Provides buttons for navigating to the previous year, previous month, next month, and next year.
+ *
+ * Also displays the current month and year.
+ *
+ * @param {CalendarNavigationProps} props - The component props.
+ * @returns {React.ReactElement} - The rendered component.
+ */
 export const CalendarNavigation: React.FC<CalendarNavigationProps> = ({
   displayMonth,
   onPreviousYear,

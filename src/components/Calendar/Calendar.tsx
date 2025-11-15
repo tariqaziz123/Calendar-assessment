@@ -7,6 +7,16 @@ import { useCalendar } from "../hooks";
 import { CalendarNavigation } from "./CalendarNavigation";
 import { CalendarDayCell } from "./CalendarDayCell";
 
+/**
+ * A flexible and customizable React calendar component built with TypeScript and date-fns.
+ * @param {Object} props - The props object passed to the component
+ * @param {Date} props.date - The initial date to display and select
+ * @param {Object} props.styles - Optional inline styles for calendar elements
+ * @param {Object} props.classNames - Optional custom CSS class names for calendar elements
+ * @param {Object} props.customStyles - Optional CSS module class names for calendar elements
+ * @param {Boolean} props.useDefaultStyles - Whether to use default styles
+ * @returns {ReactElement} The rendered calendar component
+ */
 export default function Calendar({ 
   date, 
   styles: customStyles, 

@@ -17,7 +17,13 @@ describe("CalendarDayCell", () => {
     getClassName: mockGetClassName,
   };
 
-  // Helper function to render CalendarDayCell in a proper table structure
+  /**
+   * Helper function to render CalendarDayCell in a proper table structure.
+   * This function wraps the given component in a table and tbody element,
+   * which is necessary for the component to be rendered correctly.
+   * @param {React.ReactElement} component - The component to be rendered.
+   * @returns {React.ReactElement} The rendered component.
+   */
   const renderInTable = (component: React.ReactElement) => {
     return render(
       <table>
