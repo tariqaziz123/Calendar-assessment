@@ -1,5 +1,5 @@
 import { addMonths, subMonths, addYears, subYears } from "date-fns";
-import { useEffect, useMemo } from "react";
+import { useEffect, useMemo, useCallback } from "react";
 import styles from "./Calendar.module.css";
 import type { CalendarProps } from "../types";
 import { generateCalendarWeeks, WEEKDAYS, getClassName as getClassNameHelper } from "../utils";
@@ -24,33 +24,27 @@ export default function Calendar({
   const { selectedDate, displayMonth, setDisplayMonth, handleDateClick } = useCalendar(initialDate);
 
   // Update when date prop changes (using timestamp to avoid object reference issues)
-  const dateTimestamp = useMemo(() => {
-    const d = new Date(date);
-    return Number.isNaN(d.valueOf()) ? null : d.getTime();
-  }, [date]);
+  const dateTimestamp = useMemo(() => initialDate.getTime(), [initialDate]);
 
   useEffect(() => {
-    if (dateTimestamp !== null) {
-      const newDate = new Date(dateTimestamp);
-      handleDateClick(newDate);
-    }
+    handleDateClick(new Date(dateTimestamp));
   }, [dateTimestamp, handleDateClick]);
 
-  const handlePreviousMonth = () => {
+  const handlePreviousMonth = useCallback(() => {
     setDisplayMonth(subMonths(displayMonth, 1));
-  };
+  }, [displayMonth, setDisplayMonth]);
 
-  const handleNextMonth = () => {
+  const handleNextMonth = useCallback(() => {
     setDisplayMonth(addMonths(displayMonth, 1));
-  };
+  }, [displayMonth, setDisplayMonth]);
 
-  const handlePreviousYear = () => {
+  const handlePreviousYear = useCallback(() => {
     setDisplayMonth(subYears(displayMonth, 1));
-  };
+  }, [displayMonth, setDisplayMonth]);
 
-  const handleNextYear = () => {
+  const handleNextYear = useCallback(() => {
     setDisplayMonth(addYears(displayMonth, 1));
-  };
+  }, [displayMonth, setDisplayMonth]);
 
   const weeks = useMemo(() => generateCalendarWeeks(displayMonth), [displayMonth]);
 
